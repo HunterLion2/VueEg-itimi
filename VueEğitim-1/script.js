@@ -5,7 +5,24 @@ const app = Vue.createApp({
             name: ''
         };
     },
+    computed: {
+        // Copmuted'ın mantığını içerisinde yazılan koşullar , html içerisinde herhangi bir değer içerisinde buradaki 
+        // fullNameComputed değeri yazıldığı zaman o html içeriği içerisindeki değer değişikliğe uğradığında bu bölüm çalışmaz, sadece bu bölüm içerisinde kullandığım değişkenlerden yani this.name değiştiği zaman burası çalışır
+        fullNameComputed() {
+            console.log("Execute edildi");
+            if (this.name = '') {
+                return '';
+            }
+            return this.name + ' ' + 'Özgürgil';
+        }
+    },
     methods: { // Vue de fonksüyon yazmak istediğimiz zaman methods içerisine yazarız.
+        fullname() {
+            if (this.name = '') {
+                return '';
+            }
+            return this.name + ' ' + 'Özgürgil';
+        },
         reset() {
             this.name = '';
         },

@@ -29,7 +29,8 @@
         direkt içerisine vue'den gelen bilgiyi verebilirim. -->
       <div class="text-center">
         <p>Değer: {{counter}}</p>
-        <p v-once>Değer: {{counter}}</p> <!-- Burada kullandığımız v-once değeri sayesinde bu değer ilk verilen değer halinde kalır -->
+        <p v-once>Değer: {{counter}}</p>
+        <!-- Burada kullandığımız v-once değeri sayesinde bu değer ilk verilen değer halinde kalır -->
       </div>
       <!-- Buradaki iki değerde de aynı işlem olur fakat birinde fonksüyon yazıp yaparken öbüründe ,
         fonksüyon olmayan bir değer olarak aldığımız değeri ++ ile arttırabiliyoruz. -->
@@ -41,21 +42,25 @@
       </button>
 
       <div>
+        <!-- Buradaki v-model değeri iki taraflı veri bağlamak için kullanılır. İnput içerisine girilen değer 
+        script.js deki name değeri ile anlık güncellenir bu sayede ekstra kod yazmamıza gerek kalmaz data-binding işlemini
+        bu şekilde yapmış oluruz. -->
+        <input v-model="name" />
+        <button v-on:click="reset">Resetle</button>
         <!-- Burada yazmış olduğumuz $event değerindeki $ işareti sayesinde input içerisindeki event'i yakalamış oluruz
         eğer buradaki gibi 2 ya da birden fazla değer döndüreceksek , buradaki event değerinin kaybolmaması için bunu yapmak zorundayız.  -->
-        <input v-bind:value="name" type="text" v-on:input="setName($event)" />
-        <button v-on:click="reset">Resetle</button>
-        <p>Adınız: {{name}}</p>
+        <!-- v-bind:value="name" type="text" v-on:input="setName($event)" -->
+        <p>Adınız: {{fullname()}}</p>
       </div>
 
       <div>
-        <form v-on:submit.prevent="login"> <!-- Eğer ki burası v-on:submit şeklinde kalırsa o zanan sayfa yenilemesi olur ama v-on:submit.prevent olursa 
+        <form v-on:submit.prevent="login">
+          <!-- Eğer ki burası v-on:submit şeklinde kalırsa o zanan sayfa yenilemesi olur ama v-on:submit.prevent olursa 
             sayfa yenilemesi olmaz. -->
-            <input type="text">
-            <button>Giriş Yap</button>
+          <input type="text" />
+          <button>Giriş Yap</button>
         </form>
       </div>
-
     </section>
     <!-- Buradaki defer özelliği ,script ya da sayfaya sonradan eklenicek dahil edilicek özellik eklenirken sayfanın
     yüklü olup olmamasına bak eğer html içerikleri yüklü değilse bekle hepsi yüklenince getir anlamına gelir. Bu özellik
