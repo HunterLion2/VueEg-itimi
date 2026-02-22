@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <header>
+        <h1>Frontend de Öğrenilmesi Gerekenler.</h1>
+    </header>
+
+    <section id="frontend">
+        <h2>Egzersiz</h2>
+        <p>{{age()}}</p>
+        <p v-html="secondGoal"></p> <!-- Vue'den gelen bir html bilgisi bu şekilde html'e aktarılır. -->
+        <img v-bind:src="website" alt="">
+        <input type="text" v-bind:placeholder="firstGoal">
+    </section>
+    <!-- Buradaki defer özelliği ,script ya da sayfaya sonradan eklenicek dahil edilicek özellik eklenirken sayfanın
+    yüklü olup olmamasına ba keğer html içerikleri yüklü değilse bekle hepsi yüklenince getir anlamına gelir. Bu özellik
+    sayesinde aşşağıdaki script dosyasını ister html'in en altına yaz ister en üstüne hepsinde de bekliyeceği için
+    çalışmama durumu olmaz.  -->
+    <script src="script.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>Frontend de Öğrenilmesi Gerekenler.</h1>
+    </header>
+
+    <section id="frontend">
+      <h2>Sayaç</h2>
+      <!-- <p>{{ourGoal()}}</p> -->
+      <!-- <p v-html="secondGoal"></p>-->
+      <!-- Vue'den gelen bir html bilgisi bu şekilde html'e aktarılır. -->
+      <!--<a v-bind:href="website">Websitem</a>-->
+      <!-- Bu şekilde html attributeleri içerisine 
+        Databinding ile değerleri getirebilmek için buradaki gibi v-bind değerini kullanmamız gerekir. Bu sayede
+        direkt içerisine vue'den gelen bilgiyi verebilirim. -->
+      <div class="text-center">
+        <p>Değer: {{counter}}</p>
+        <p v-once>Değer: {{counter}}</p> <!-- Burada kullandığımız v-once değeri sayesinde bu değer ilk verilen değer halinde kalır -->
+      </div>
+      <!-- Buradaki iki değerde de aynı işlem olur fakat birinde fonksüyon yazıp yaparken öbüründe ,
+        fonksüyon olmayan bir değer olarak aldığımız değeri ++ ile arttırabiliyoruz. -->
+      <button v-on:click="downer" class="btn btn-outline-warning">
+        azaltma
+      </button>
+      <button v-on:click="counter++" class="btn btn-outline-danger">
+        arttırma
+      </button>
+
+      <div>
+        <!-- Burada yazmış olduğumuz $event değerindeki $ işareti sayesinde input içerisindeki event'i yakalamış oluruz
+        eğer buradaki gibi 2 ya da birden fazla değer döndüreceksek , buradaki event değerinin kaybolmaması için bunu yapmak zorundayız.  -->
+        <input v-bind:value="name" type="text" v-on:input="setName($event)" />
+        <button v-on:click="reset">Resetle</button>
+        <p>Adınız: {{name}}</p>
+      </div>
+
+      <div>
+        <form v-on:submit.prevent="login"> <!-- Eğer ki burası v-on:submit şeklinde kalırsa o zanan sayfa yenilemesi olur ama v-on:submit.prevent olursa 
+            sayfa yenilemesi olmaz. -->
+            <input type="text">
+            <button>Giriş Yap</button>
+        </form>
+      </div>
+
+    </section>
+    <!-- Buradaki defer özelliği ,script ya da sayfaya sonradan eklenicek dahil edilicek özellik eklenirken sayfanın
+    yüklü olup olmamasına bak eğer html içerikleri yüklü değilse bekle hepsi yüklenince getir anlamına gelir. Bu özellik
+    sayesinde aşşağıdaki script dosyasını ister html'in en altına yaz ister en üstüne hepsinde de bekliyeceği için
+    çalışmama durumu olmaz.  -->
+    <script src="script.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
