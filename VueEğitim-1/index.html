@@ -46,11 +46,12 @@
         script.js deki name değeri ile anlık güncellenir bu sayede ekstra kod yazmamıza gerek kalmaz data-binding işlemini
         bu şekilde yapmış oluruz. -->
         <input v-model="name" />
+        <input v-model="lastName" />
         <button v-on:click="reset">Resetle</button>
         <!-- Burada yazmış olduğumuz $event değerindeki $ işareti sayesinde input içerisindeki event'i yakalamış oluruz
         eğer buradaki gibi 2 ya da birden fazla değer döndüreceksek , buradaki event değerinin kaybolmaması için bunu yapmak zorundayız.  -->
         <!-- v-bind:value="name" type="text" v-on:input="setName($event)" -->
-        <p>Adınız: {{fullname()}}</p>
+        <p>Adınız: {{fullNameComputed}}</p>
       </div>
 
       <div>
