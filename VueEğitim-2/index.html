@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Vue-Eğitimi-2</title>
+  </head>
+<body>
+    
+    <header>
+        <h1>Frontend De Öğrenmemiz Gerekenler</h1>
+    </header>
+
+    <section id="frontend">
+        <h2>Dinamik Stillendirme</h2>
+
+        <!-- 
+            
+            Buradaki class'lar içerisindeki iki yazım tarzı da aynı şeye hizmet eder fakat [] kullanılarak yapılan class 
+            içerisindeki ilk değer sabit değerdir yani hiçbir koşul gerçekleşmediğinde , sayfa ilk açıldığı zaman yazan değerdir. Sonrasında yazılan değer
+            click eventi ile gelen class değeridir.
+
+        -->
+            
+        <div class="box" class="boxOneSelected" @click="choosebox(1)"></div>
+        <div :class="['box',{selected:secondbox}]" @click="choosebox(2)"></div>
+        <div class="box" @click="choosebox(3)"></div>
+    </section>
+
+    <script src="script.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
